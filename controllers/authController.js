@@ -9,6 +9,7 @@ router.get('/login', (req, res) => {
 
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
+    console.log('request', req.body)
     query = {username: req.body.user, password: req.body.pass}
     const user = await User.findOne(query);
     console.log(query,user)

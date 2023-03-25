@@ -1,36 +1,11 @@
 <%- include('partials/frontsite/header') %>
     <%- include('partials/frontsite/navbar') %>
-        <!-- Page header with logo and tagline-->
-        <header class="py-5 bg-light border-bottom mb-4">
-            <div class="container">
-                <div class="text-center my-5">
-                    <h1 class="fw-bolder">Welcome to MEEN Stack Blog!</h1>
-                    <p class="lead mb-0">MongoDB, Express, EJS, NodeJS Stack</p>
-                </div>
-            </div>
-        </header>
         <!-- Page content-->
-        <div class="container">
+        <div class="container mt-5">
             <div class="row">
                 <!-- Blog entries-->
                 <div class="col-lg-8">
-                    <!-- Featured blog post-->
-                    <div class="card mb-4">
-                        <a href="/blog/post/<%= featured._id %>"><img class="card-img-top" src="<%= featured.image %>" alt="..."
-                                height="435px" /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">
-                                <%= featured.createdAt.toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' }) %>
-                            </div>
-                            <h2 class="card-title">
-                                <%= featured.title %>
-                            </h2>
-                            <p class="card-text">
-                                <%= String(featured.content).substring(0,50) + "..." %>
-                            </p>
-                            <a class="btn btn-primary" href="/blog/post/<%= featured._id %>">Read more →</a>
-                        </div>
-                    </div>
+
                     <!-- Nested row for non-featured blog posts-->
                     <div class="row">
 
@@ -42,7 +17,8 @@
                                             alt="..." /></a>
                                     <div class="card-body">
                                         <div class="small text-muted">
-                                            <%= blog.createdAt.toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' }) %>
+                                            <%= blog.createdAt.toLocaleDateString(undefined, { month: 'long' ,
+                                                day: 'numeric' , year: 'numeric' }) %>
                                         </div>
                                         <h2 class="card-title h4">
                                             <%= blog.title %>
@@ -50,7 +26,7 @@
                                         <p class="card-text">
                                             <%= String(blog.content).substring(0,50) + "..." %>
                                         </p>
-                                        <a class="btn btn-primary" href="#!">Read more →</a>
+                                        <a class="btn btn-primary" href="/blog/post/<%= blog.id %>">Read more →</a>
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +34,7 @@
 
                     </div>
                     <!-- Pagination-->
-                    <nav aria-label="Pagination">
+                    <!-- <nav aria-label="Pagination">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
                             <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"
@@ -70,7 +46,7 @@
                             <li class="page-item"><a class="page-link" href="#!">15</a></li>
                             <li class="page-item"><a class="page-link" href="#!">Older</a></li>
                         </ul>
-                    </nav>
+                    </nav> -->
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">
@@ -87,27 +63,28 @@
                             </div>
                         </div>
                         <!-- Categories widget-->
-                        <!-- <div class="card mb-4">
-                            <div class="card-header">Categories</div>
+                        <div class="card mb-4">
+                            <div class="card-header">Latest Post</div>
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <ul class="list-unstyled mb-0">
-                                            <li><a href="#!">Web Design</a></li>
-                                            <li><a href="#!">HTML</a></li>
-                                            <li><a href="#!">Freebies</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <ul class="list-unstyled mb-0">
-                                            <li><a href="#!">JavaScript</a></li>
-                                            <li><a href="#!">CSS</a></li>
-                                            <li><a href="#!">Tutorials</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <% latest.forEach(function(blog) { %>
+                                <a class="text-reset mb-3" href="/blog/post/<%= blog._id %>">
+                                        <div class="d-flex align-items-center"><img class="img-fluid flex-shrink-0"
+                                                src="<%= blog.image %>"
+                                                alt="..." width="55">
+                                            <div class="ms-3">
+                                                <p class="mb-2 fw-bold text-gray-700 lh-1"><%= blog.title %></p>
+                                                <ul
+                                                    class="list-inline list-separated text-gray-500 d-flex align-items-center">
+                                                    <!-- <li class="list-inline-item small"><i class="far fa-eye"></i> 500</li>
+                                                    <li class="list-inline-item small"><i class="far fa-comment"></i> 12 -->
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </a>
+                                <% }); %>
                             </div>
-                        </div> -->
+                        </div>
                         <!-- Side widget-->
                         <!-- <div class="card mb-4">
                             <div class="card-header">Side Widget</div>
@@ -118,4 +95,4 @@
                 </div>
             </div>
         </div>
-<%- include('partials/frontsite/footer') %>
+        <%- include('partials/frontsite/footer') %>
