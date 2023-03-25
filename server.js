@@ -28,6 +28,7 @@ const homeController = require('./controllers/homeController');
 const authController = require('./controllers/authController');
 const blogController = require('./controllers/blogController');
 const dashboardController = require('./controllers/dashboardController');
+const aboutController = require('./controllers/aboutController');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -36,5 +37,6 @@ app.use('/', homeController);
 app.use('/dashboard', dashboardController);
 app.use('/auth', authController);
 app.use('/blog', blogController);
+app.use('/about', aboutController);
 
 app.listen(3000, () => console.log('Server running on port 3000'));

@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User');
 
 router.get('/login', (req, res) => {
-    res.render('login', {title: 'Login'});
+    res.render('login', {title: 'Login', page_name: 'login'});
 });
 
 router.post('/login', async (req, res) => {
@@ -27,7 +27,7 @@ router.post('/login', async (req, res) => {
 
     // req.session.user = user;
     if (!user) {
-        return res.render('login', { title: 'Login', error: 'Invalid email or password' });
+        return res.render('login', { title: 'Login', error: 'Invalid email or password', page_name: 'login' });
     }
     res.redirect('/dashboard');
 });

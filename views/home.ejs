@@ -38,7 +38,7 @@
                             <div class="col-md-6">
                                 <!-- Blog post-->
                                 <div class="card mb-3">
-                                    <a href="#!"><img class="card-img-top img-fluid thumbnail" src="<%= blog.image %>"
+                                    <a href="/blog/post/<%= blog._id %>"><img class="card-img-top img-fluid thumbnail" src="<%= blog.image %>"
                                             alt="..." /></a>
                                     <div class="card-body">
                                         <div class="small text-muted">
@@ -79,11 +79,13 @@
                         <div class="card mb-4">
                             <div class="card-header">Search</div>
                             <div class="card-body">
-                                <div class="input-group">
-                                    <input class="form-control" type="text" placeholder="Enter search term..."
-                                        aria-label="Enter search term..." aria-describedby="button-search" />
-                                    <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                                </div>
+                                <form method="POST" action="/blog/post/search">
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" placeholder="Enter search term..."
+                                            aria-label="Enter search term..." aria-describedby="button-search" name="q"/>
+                                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         <!-- Categories widget-->
