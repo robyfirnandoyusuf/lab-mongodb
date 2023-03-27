@@ -11,7 +11,7 @@ const db = mongoose.connection;
 
 const seedBlogPosts = async () => {
     try {
-        await db.dropCollection('blogs');
+        await db.dropCollection('blog');
     } catch (error) {
         console.log('Error dropping collection: ', error);
     }
