@@ -5,7 +5,7 @@ const { faker } = require('@faker-js/faker');
 const Blog = require('../../models/Blog');
 const User = require('../../models/User');
 
-mongoose.connect('mongodb://localhost:27017/vulnerablemean', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://127.0.0.1:27017/vulnerablemean', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 

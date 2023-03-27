@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const path = require('path');
-const dbUrl = 'mongodb://localhost:27017/vulnerablemean';
+const dbUrl = 'mongodb://127.0.0.1:27017/vulnerablemean';
 
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 
