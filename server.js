@@ -24,6 +24,16 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: db })
 }));
 
+// middleware function
+const authMiddleware = (req, res, next) => {
+  // check if user is authenticated
+  if (!req.session.user) {
+    return res.redirect('/auth/login');
+  }
+  // user is authenticated
+  next();
+};
+
 const homeController = require('./controllers/homeController');
 const authController = require('./controllers/authController');
 const blogController = require('./controllers/blogController');
@@ -34,7 +44,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 // app.set('views', path.join(__dirname, 'views'));
 app.use('/', homeController);
-app.use('/dashboard', dashboardController);
+app.use('/dashboard', authMiddleware, dashboardController);
 app.use('/auth', authController);
 app.use('/blog', blogController);
 app.use('/about', aboutController);
