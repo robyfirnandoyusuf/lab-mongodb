@@ -1,4 +1,5 @@
 const seedBlogPosts = require('./blogSeeder');
+const seedUsers = require('./userSeeder');
 const express = require('express');
 // const app = express();
 // const mongoose = require('mongoose');
@@ -14,3 +15,4 @@ const express = require('express');
 // });
 
 seedBlogPosts(); // Call the seeder function here
+seedUsers();
