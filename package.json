@@ -6,9 +6,11 @@
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
-    "mongoose": "^7.0.1"
+    "mongoose": "^7.0.1",
+    "superagent": "^8.0.9"
   },
   "devDependencies": {
-    "@faker-js/faker": "^7.6.0"
+    "@faker-js/faker": "^7.6.0",
+    "mocha": "^10.2.0"
   }
 }
